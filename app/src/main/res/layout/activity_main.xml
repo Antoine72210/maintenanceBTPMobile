@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/buttonCreateRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:text="Faire demandes"
+        />
+
+    <TextView
+        android:id="@+id/textViewRecordCount"
+        android:layout_width="403dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/buttonCreateRequest"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:padding="1dp"
+        android:text="0 demandes affichées"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCreateRequest" />
+
+    <ScrollView
+        android:id="@+id/scrollViewRecords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRecordCount"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRecordCount">
+        <LinearLayout
+            android:id="@+id/linearLayoutRecords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

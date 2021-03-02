@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/textViewSpinnerNiveau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="23dp"
+        android:text="Niveau :" />
+
+    <Spinner
+        android:id="@+id/spinnerNiveau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textViewSpinnerNiveau"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="42dp"
+        android:entries="@array/niveau"
+        android:hint="Niveau" />
+
+    <TextView
+        android:id="@+id/textViewSpinnerZone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="86dp"
+        android:text="Zone :" />
+
+    <Spinner
+        android:id="@+id/spinnerZone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSpinnerZone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="110dp"
+        android:entries="@array/zone"
+        android:hint="Niveau" />
+
+    <requestFocus />
+
+    <EditText
+        android:id="@+id/editTextSalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerZone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="149dp"
+        android:hint="Salle"
+        android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/editTextTitreDemande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextSalle"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="211dp"
+        android:hint="Titre de la demande"
+        android:singleLine="true"/>
+
+
+    <EditText
+        android:id="@+id/editTextMateriel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextTitreDemande"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="16dp"
+        android:hint="Matériel(s) défectueux"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/textViewSpinnerCategorie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextMateriel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="346dp"
+        android:text="Catégorie :" />
+
+    <Spinner
+        android:id="@+id/spinnerCategorie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewSpinnerCategorie"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="-6dp"
+        android:layout_marginTop="366dp"
+        android:entries="@array/categorie"
+        android:hint="Niveau" />
+
+    <TextView
+        android:id="@+id/textViewSpinnerProbleme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerCategorie"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="470dp"
+        android:text="Description  du problème rencontré :" />
+
+    <EditText
+        android:id="@+id/editTextProbleme"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/textViewSpinnerProbleme"
+        android:layout_marginTop="21dp"
+        android:gravity="top"
+        android:inputType="text|textMultiLine" />
+
+</RelativeLayout>

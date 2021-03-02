@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MaintenanceBTP</string>
+    <string-array name="niveau">
+        <item>Rez-de-chaussé</item>
+        <item>Étage</item>
+    </string-array>
+    <string-array name="zone">
+        <item>Zone 1</item>
+        <item>Zone 2</item>
+        <item>Zone 3</item>
+        <item>Zone 4</item>
+        <item>Zone 5</item>
+    </string-array>
+    <string-array name="categorie">
+        <item>Menuiserie</item>
+        <item>Électricité</item>
+        <item>Informatique</item>
+        <item>Petit bricolage</item>
+        <item>Organisation</item>
+        <item>Plomberie</item>
+    </string-array>
+</resources>
