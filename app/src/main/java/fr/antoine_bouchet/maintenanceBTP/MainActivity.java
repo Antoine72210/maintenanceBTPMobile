@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     Context context;
     String idOpt;
+    Button btOk, btCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,9 +117,9 @@ public class MainActivity extends AppCompatActivity {
                 String ticketCategorie = obj.categorie;
                 String ticketProbleme = obj.probleme;
 
-                String textViewContents = ticketTitre + " - " + ticketCategorie;
+                String textViewContents = ticketTitre + "            -            " + ticketSalle + "            -            " + ticketCategorie;
                 TextView textViewTicketItem = new TextView(this);
-                textViewTicketItem.setPadding(0, 10, 0, 10);
+                textViewTicketItem.setPadding(100, 200, 0, 10);
                 textViewTicketItem.setText(textViewContents);
                 textViewTicketItem.setTag(Integer.toString(id));
                 textViewTicketItem.setOnLongClickListener(new View.OnLongClickListener() {
@@ -126,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         context = v.getContext();
                         idOpt = v.getTag().toString();
 
-                        final CharSequence[] items = {"Visionner","Editer", "Supprimer"};
+                        final CharSequence[] items = {"Visionner"};
                         new AlertDialog.Builder(context).setTitle("Demande enregistrée")
                                 .setItems(items, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int item) {
@@ -242,44 +244,66 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showRecord(final int ticketId) {
-        final TableControllerTicket tableControllerTicket = new TableControllerTicket(context);
+        setContentView(R.layout.activity_result_form);
 
-        ObjectTicket objectTicket = tableControllerTicket.readSingleRecord(ticketId);
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View formElementsView = inflater.inflate(R.layout.ticket_input_form, null, false);
+        String str1 = "";
+        String str2 = "";
+        String str3 = "";
+        String str4 = "";
+        String str5 = "";
+        String str6 = "";
+        String str7 = "";
 
-        final Spinner editTextTicketNiveau = (Spinner) formElementsView.findViewById(R.id.spinnerNiveau);
-        final Spinner editTextTicketZone = (Spinner) formElementsView.findViewById(R.id.spinnerZone);
-        final EditText editTextTicketSalle = (EditText) formElementsView.findViewById(R.id.editTextSalle);
-        final EditText editTextTicketTitre = (EditText) formElementsView.findViewById(R.id.editTextTitreDemande);
-        final EditText editTextTicketMateriel = (EditText) formElementsView.findViewById(R.id.editTextMateriel);
-        final Spinner editTextTicketCategorie = (Spinner) formElementsView.findViewById(R.id.spinnerCategorie);
-        final EditText editTextTicketProbleme = (EditText) formElementsView.findViewById(R.id.editTextProbleme);
+        List<ObjectTicket> ticket = new TableControllerTicket(this).read();
+        for (ObjectTicket obj : ticket) {
+            int id = obj.id;
+            String ticketNiveau = obj.niveau;
+            String ticketZone = obj.zone;
+            String ticketSalle = obj.salle;
+            String ticketTitre = obj.titre;
+            String ticketMateriel = obj.materiel;
+            String ticketCategorie = obj.categorie;
+            String ticketProbleme = obj.probleme;
 
-        new AlertDialog.Builder(context)
-                .setView(formElementsView)
-                .setTitle("Visualisation d'une demande")
-                .setPositiveButton("Retour",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                ObjectTicket objectTicket = new ObjectTicket();
-                                objectTicket.id = ticketId;
-                                String ticketNiveau = editTextTicketNiveau.getSelectedItem().toString();
-                                String ticketZone = editTextTicketZone.getSelectedItem().toString();
-                                String ticketSalle = editTextTicketSalle.getText().toString();
-                                String ticketTitre = editTextTicketTitre.getText().toString();
-                                String ticketMateriel = editTextTicketMateriel.getText().toString();
-                                String ticketCategorie = editTextTicketCategorie.getSelectedItem().toString();
-                                String ticketProbleme = editTextTicketProbleme.getText().toString();
+            TextView textView1 = (TextView) findViewById(R.id.niveauResult);
+            textView1.setText(ticketNiveau);
+
+            TextView textView2 = (TextView) findViewById(R.id.zoneResult);
+            textView2.setText(ticketZone);
+
+            TextView textView3 = (TextView) findViewById(R.id.salleResult);
+            textView3.setText(ticketSalle);
+
+            TextView textView4 = (TextView) findViewById(R.id.titreResult);
+            textView4.setText(ticketTitre);
+
+            TextView textView5 = (TextView) findViewById(R.id.materielResult);
+            textView5.setText(ticketMateriel);
+
+            TextView textView6 = (TextView) findViewById(R.id.categorieResult);
+            textView6.setText(ticketCategorie);
+
+            TextView textView7 = (TextView) findViewById(R.id.problemeResult);
+            textView7.setText(ticketProbleme);
 
 
+            btOk = findViewById(R.id.bt_ok);
+            btCancel = findViewById(R.id.bt_cancel);
+        }
+        btOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                                countRecords();
-                                readRecords();
-                                dialog.cancel();
-                            }
-                        }).show();
-        countRecords();
-        readRecords();
+        btCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
