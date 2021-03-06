@@ -25,7 +25,7 @@
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:padding="1dp"
-        android:text="0 demandes trouvées"/>
+        android:text="0 demande trouvée"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableControllerTicket extends DatabaseHandler {
+public class  TableControllerTicket extends DatabaseHandler {
     public TableControllerTicket(Context context){
         super(context);
     }
